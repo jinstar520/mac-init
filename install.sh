@@ -45,7 +45,7 @@ source ~/.zshrc
 
 # 安装 brew
 echo '==== 安装 brew ===='
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # 替换 homebrew-core
 echo '替换 homebrew-core'
