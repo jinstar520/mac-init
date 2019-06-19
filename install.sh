@@ -18,23 +18,25 @@ echo '==== 安装 rvm ===='
 # 使 rvm 脚本生效
 source ~/.rvm/scripts/rvm
 
-# 安装 brew
-echo '==== 安装 brew ===='
+# 安装 Homebrew
+echo '==== 安装 Homebrew ===='
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# 替换 homebrew-core
-echo '==== 替换 homebrew-core ===='
-cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
-git remote set-url origin git://mirrors.ustc.edu.cn/homebrew-core.git
+# 替换 brew.git
+echo '==== 替换 brew.git ===='
+cd "$(brew --repo)"
+git remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git
 
-# 回到家目录
-cd ~
+# 替换 homebrew-core.git
+echo '==== 替换 homebrew-core.git ===='
+cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+git remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git
 
 # 替换 Homebrew Bottles
 echo '==== 替换 Homebrew Bottles ===='
 echo '' >> ~/.zshrc
 echo '# 替换 Homebrew Bottles' >> ~/.zshrc
-echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.zshrc
+echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles' >> ~/.zshrc
 
 # 修改 RVM 的 Ruby 安装源到 Ruby China 的 Ruby 镜像服务器
 echo '' >> ~/.rvm/user/db
